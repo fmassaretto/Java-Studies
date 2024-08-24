@@ -18,11 +18,12 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 class ViaCepControllerTest {
 
-    public static final String CEP = "13216-070";
-    public static final String STREET = "Rua 123";
+    public static final String CEP = "13216-000";
+    public static final String STREET = "Avenida São João";
     public static final String CITY = "Jundiai";
     public static final String STATE = "SP";
     public static final String NEIGHBOR = "Vila Joana";
+
     @InjectMocks
     private ViaCepController controller;
 
@@ -30,7 +31,6 @@ class ViaCepControllerTest {
     private ViaCepService viaCepService;
 
     private ViaCepModel viaCepModel;
-
 
     @BeforeEach
     void setUp() {

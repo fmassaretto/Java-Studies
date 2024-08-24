@@ -37,11 +37,11 @@ class ViaCepControllerIntegTest {
 
     @Test
     public void whenHitViaCepClientEndpointShouldReturnValidResponse() throws Exception {
-        ViaCepModel viaCepModel = new ViaCepModel("13216-070", "Rua Ignes", "Jundiai", "Sao PAulo", "Vila Joana");
+        ViaCepModel viaCepModel = new ViaCepModel("13216-000", "Avenida São João", "Jundiai", "Sao PAulo", "Vila Joana");
 
-        given(viaCepController.getCep("13216-070")).willReturn(ResponseEntity.ok(viaCepModel));
+        given(viaCepController.getCep("13216-000")).willReturn(ResponseEntity.ok(viaCepModel));
 
-        this.mockMvc.perform(get("/v1/cep/13216-070"))
+        this.mockMvc.perform(get("/v1/cep/13216-000"))
                 .andExpect(result -> Objects.requireNonNull(result.getResponse().getContentAsString()))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("logradouro", is(viaCepModel.street())))
