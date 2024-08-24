@@ -26,7 +26,7 @@ class ViaCepServiceTest {
 
     @BeforeEach
     void setUp() {
-        viaCepModel = new ViaCepModel("13216-070", "Rua 123", "Jundiai", "SP", "Vila Joana");
+        viaCepModel = new ViaCepModel("13216-000", "Avenida São João", "Jundiai", "SP", "Vila Joana");
     }
 
     @Test
@@ -34,7 +34,7 @@ class ViaCepServiceTest {
     void whenCallViaCepClientThenShouldReturnViaCep(){
         when(viaCepClient.getViaCep(anyString())).thenReturn(viaCepModel);
 
-        ViaCepModel result = viaCepService.getCep("13216-070");
+        ViaCepModel result = viaCepService.getCep("13216-000");
 
         assertEquals(viaCepModel, result);
     }
