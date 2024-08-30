@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.model.Employee;
+import com.example.demo.model.entity.Employee;
 import com.example.demo.model.dto.EmployeeDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

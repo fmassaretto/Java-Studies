@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.mapper.EmployeeMapper;
-import com.example.demo.model.Employee;
+import com.example.demo.model.entity.Employee;
 import com.example.demo.model.dto.EmployeeDto;
 import com.example.demo.service.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;

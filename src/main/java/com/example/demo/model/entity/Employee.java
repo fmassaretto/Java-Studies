@@ -1,9 +1,7 @@
-package com.example.demo.model;
+package com.example.demo.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,11 +13,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "employee")
+@Table(name = "employees")
 public class Employee {
 
     @Id
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "employee_id")
+    private long employeeId;
     @JsonProperty("first_name")
     private String firstName;
     @JsonProperty("last_name")
