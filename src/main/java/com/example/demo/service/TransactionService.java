@@ -71,7 +71,7 @@ public class TransactionService {
     }
 
     private boolean hasSenderBalance(User sender, BigDecimal amount) {
-        return sender.balance.compareTo(amount) > 0;
+        return sender.balance.compareTo(amount) >= 0;
     }
 
 
