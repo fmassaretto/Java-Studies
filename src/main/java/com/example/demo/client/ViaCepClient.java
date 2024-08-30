@@ -1,6 +1,6 @@
-package com.example.demo.clients;
+package com.example.demo.client;
 
-import com.example.demo.model.ViaCepModel;
+import com.example.demo.client.model.ViaCepModel;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.service.annotation.GetExchange;
 

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.ViaCepModel;
+import com.example.demo.client.model.ViaCepModel;
 import com.example.demo.service.ViaCepService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

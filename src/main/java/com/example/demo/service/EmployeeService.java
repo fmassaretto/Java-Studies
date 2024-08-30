@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.mapper.EmployeeMapper;
-import com.example.demo.model.Employee;
+import com.example.demo.model.entity.Employee;
 import com.example.demo.model.dto.EmployeeDto;
 import com.example.demo.repository.EmployeeRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -43,7 +43,7 @@ public class EmployeeService {
 
         Employee savedEmployee = employeeRepository.save(employee);
 
-        log.info("Employee with id: {} saved successfully", savedEmployee.getId());
+        log.info("Employee with id: {} saved successfully", savedEmployee.getEmployeeId());
         return savedEmployee;
     }
 
@@ -59,7 +59,7 @@ public class EmployeeService {
 
         Employee updatedEmployee = employeeRepository.save(employee);
 
-        log.info("Employee with id: {} updated successfully", updatedEmployee.getId());
+        log.info("Employee with id: {} updated successfully", updatedEmployee.getEmployeeId());
         return updatedEmployee;
     }
 

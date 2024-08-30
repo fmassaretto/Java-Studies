@@ -1,7 +1,7 @@
 package com.example.demo.controller.integ;
 
 import com.example.demo.controller.ViaCepController;
-import com.example.demo.model.ViaCepModel;
+import com.example.demo.client.model.ViaCepModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.mapper.EmployeeMapper;
-import com.example.demo.model.Employee;
+import com.example.demo.model.entity.Employee;
 import com.example.demo.model.dto.EmployeeDto;
 import com.example.demo.repository.EmployeeRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -68,7 +68,7 @@ class EmployeeServiceTest {
         assertEquals(1, result.size());
         assertEquals(employee, result.getFirst());
 
-        assertEquals(ID, result.getFirst().getId());
+        assertEquals(ID, result.getFirst().getEmployeeId());
         assertEquals(FIRST_NAME, result.getFirst().getFirstName());
         assertEquals(LAST_NAME, result.getFirst().getLastName());
         assertEquals(AGE, result.getFirst().getAge());
@@ -82,7 +82,7 @@ class EmployeeServiceTest {
         Employee result = employeeService.getEmployeeById(ID);
 
         assertNotNull(result);
-        assertEquals(ID, result.getId());
+        assertEquals(ID, result.getEmployeeId());
         assertEquals(FIRST_NAME, result.getFirstName());
         assertEquals(LAST_NAME, result.getLastName());
         assertEquals(AGE, result.getAge());
@@ -106,7 +106,7 @@ class EmployeeServiceTest {
         Employee result = employeeService.saveEmployee(employeeDto);
 
         assertNotNull(result);
-        assertEquals(ID, result.getId());
+        assertEquals(ID, result.getEmployeeId());
         assertEquals(FIRST_NAME, result.getFirstName());
         assertEquals(LAST_NAME, result.getLastName());
         assertEquals(AGE, result.getAge());
@@ -122,7 +122,7 @@ class EmployeeServiceTest {
         Employee result = employeeService.updateEmployee(employeeDto);
 
         assertNotNull(result);
-        assertEquals(ID, result.getId());
+        assertEquals(ID, result.getEmployeeId());
         assertEquals(FIRST_NAME, result.getFirstName());
         assertEquals(LAST_NAME, result.getLastName());
         assertEquals(AGE, result.getAge());
@@ -132,11 +132,11 @@ class EmployeeServiceTest {
     @DisplayName("When Perform Delete Then Should Delete Employee Successfully")
     void WhenPerformDeleteThenShouldDeleteEmployeeSuccessfully() {
         when(employeeRepository.save(any())).thenReturn(employee);
-        doNothing().when(employeeRepository).deleteById(employee.getId());
+        doNothing().when(employeeRepository).deleteById(employee.getEmployeeId());
 
         employeeService.deleteEmployeeById(ID);
 
-        verify(employeeRepository, times(1)).deleteById(employee.getId());
+        verify(employeeRepository, times(1)).deleteById(employee.getEmployeeId());
     }
 
     private void setupEmployee() {

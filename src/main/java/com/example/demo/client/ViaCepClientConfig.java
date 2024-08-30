@@ -1,4 +1,4 @@
-package com.example.demo.clients;
+package com.example.demo.client;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,14 +11,11 @@ public class ViaCepClientConfig {
     String baseUrl = "https://viacep.com.br/";
 
     @Bean
-    public HttpServiceProxyFactory httpServiceProxyFactory(){
-        WebClient webClient = WebClient.builder().baseUrl(baseUrl).build();
-
-        return HttpServiceProxyFactory.builderFor(WebClientAdapter.create(webClient)).build();
-    }
-
-    @Bean
-    public ViaCepClient httpExchangeAdapter(HttpServiceProxyFactory factory){
-        return factory.createClient(ViaCepClient.class);
+    ViaCepClient viaCepClient(WebClient.Builder builder) {
+        var wca = WebClientAdapter.create(builder.baseUrl(baseUrl).build());
+        return HttpServiceProxyFactory.builder()
+                .exchangeAdapter(wca)
+                .build()
+                .createClient(ViaCepClient.class);
     }
 }
