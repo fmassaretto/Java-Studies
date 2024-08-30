@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.ViaCepModel;
+import com.example.demo.client.model.ViaCepModel;
 import com.example.demo.service.ViaCepService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.clients.ViaCepClient;
-import com.example.demo.model.ViaCepModel;
+import com.example.demo.client.ViaCepClient;
+import com.example.demo.client.model.ViaCepModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
