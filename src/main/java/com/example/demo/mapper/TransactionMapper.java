@@ -1,6 +1,5 @@
 package com.example.demo.mapper;
 
-import com.example.demo.model.dto.requests.TransactionRequest;
 import com.example.demo.model.dto.responses.TransactionResponse;
 import com.example.demo.model.entity.Transaction;
 import org.mapstruct.Mapper;
@@ -8,13 +7,14 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {UserMapper.class})
+@Mapper(componentModel = "spring")
 public interface TransactionMapper {
 
-    Transaction mapRequestToTransaction(TransactionRequest transactionRequest);
+//    Transaction mapRequestToTransaction(TransactionRequest transactionRequest);
 
-    // TODO: sender and receiver in target class are null
-    @Mapping(target = "sender", source = "transaction.senderUser.userUUID")
-    @Mapping(target = "receiver", source = "transaction.receiverUser.userUUID")
+    @Mapping(target="sender", source="senderUser.userUUID")
+    @Mapping(target="receiver", source="receiverUser.userUUID")
+    TransactionResponse map(Transaction source);
+
     List<TransactionResponse> mapEntityListToTransactionResponseList(List<Transaction> transaction);
 }
